@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# 运行输出（结果图 / 指标）
+results/
+demo_results/
+*.png
+metrics.json
+
+# 本地验证脚本（不上传）
+scripts/
+
+# 场景网格（示例/私有数据不上传）
+*.STL
+*.stl
+
+# 虚拟环境
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/

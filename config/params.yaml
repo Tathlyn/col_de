@@ -1,0 +1,33 @@
+# col_de 规划配置示例。
+# 请按你的 MoveIt 配置修改关节名 / group / tcp / base / 控制器 action。
+# 默认值（未写在这里的键）见 col_de/config.py 的 DEFAULT_CONFIG。
+
+robot:
+  # 关节名必须与你机器人 URDF / MoveIt SRDF 里的一致
+  joint_names: [joint_1, joint_2, joint_3, joint_4, joint_5, joint_6]
+  group_name: manipulator
+  tcp_frame: tool0          # IK 末端 link
+  base_frame: base_link     # IK 参考坐标系
+  controller_action: /follow_joint_trajectory   # FollowJointTrajectory action
+
+ik:
+  timeout: 1.0              # 单次 IK 求解超时（秒）
+  joint_limits_deg:
+    # 值为标量表示对称 ±N°；也可写 [lo, hi]
+    joint_1: 90.0
+    joint_2: 90.0
+    joint_3: 90.0
+    joint_4: 100.0
+    joint_5: 100.0
+    joint_6: 360.0
+  seed_flip:
+    # 冗余自由度枚举：index 为关节在 joint_names 中的索引（从 0 开始）
+    - index: 3      # 肘
+      values: [-2.0, 0.0, 2.0]
+    - index: 5      # 腕
+      values: [0.0, -3.141592653589793, 3.141592653589793]
+
+motion:
+  v_max: 3.0        # 单关节最大速度 rad/s
+  a_max: 10.0       # 单关节最大加速度 rad/s²
+  dt: 0.05          # 轨迹采样步长（秒）

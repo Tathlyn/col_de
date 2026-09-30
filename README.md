@@ -72,7 +72,7 @@ Obstacle-avoidance planning demo of a 6-DOF manipulator in ROS2.
 
 ![Planning time](docs/images/planning_time_comparison.png)
 
-In this 6-DOF narrow-cavity welding scenario, RRT suffers from narrow-passage issues and randomness, causing timeouts, circuitous paths, and failure to complete the straight-line weld. In contrast, deterministic numerical IK combined with collision checking and process-constraint guidance solves the straight weld stably in milliseconds, with shorter paths that closely track the seam — outperforming RRT across the board.
+In this 6-DOF narrow-cavity welding task, RRT, affected by narrow passages and randomness, tends to suffer timeouts, circuitous paths, or even failure to complete the straight-line weld. In contrast, deterministic numerical IK combined with collision checking and process-constraint guidance was better suited to the constrained welding task, enabling millisecond-level planning and direct seam-conforming trajectories.
 
 ## C Library Test Results
 
